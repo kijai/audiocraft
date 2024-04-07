@@ -20,7 +20,10 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 from torch.utils.checkpoint import checkpoint as torch_checkpoint
-from xformers import ops
+try:
+    from xformers import ops
+except:
+    print("No xformers found")
 
 from .rope import RotaryEmbedding
 from .streaming import StreamingModule
